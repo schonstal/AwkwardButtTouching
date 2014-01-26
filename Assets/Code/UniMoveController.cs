@@ -270,6 +270,25 @@ public class UniMoveController : MonoBehaviour
     }
 
 	/// <summary>
+    /// Returns true if any button is currently down.
+    /// </summary>
+    public bool AnyButton() {
+      return currentButtons != 0;
+    }
+
+	/// <summary>
+    /// Returns true if any button is currently down.
+    /// </summary>
+    public bool AnyButtonDown() {
+      if (disconnected) return false;
+		  return GetButtonDown(PSMoveButton.Circle) ||
+        GetButtonDown(PSMoveButton.Cross) ||
+        GetButtonDown(PSMoveButton.Square) ||
+        GetButtonDown(PSMoveButton.Triangle) ||
+        GetButtonDown(PSMoveButton.Move);
+    }
+
+	/// <summary>
     /// Returns true if "button" is pressed down this instant.
     /// </summary
 	public bool GetButtonDown(PSMoveButton b)
